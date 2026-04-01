@@ -26,9 +26,9 @@ RSpec.describe User, type: :model do
       end
 
       it '重複したemailが存在する場合は登録できない' do
-        @user.save 
-        another_user = FactoryBot.build(:user) 
-        another_user.email = @user.email 
+        @user.save
+        another_user = FactoryBot.build(:user)
+        another_user.email = @user.email
         another_user.valid?
         expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
@@ -74,7 +74,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'passwordに全角文字を含むと登録できない' do
-        @user.password = '1a１ａ１ａ' 
+        @user.password = '1a１ａ１ａ'
         @user.password_confirmation = '1a１ａ１ａ'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
@@ -94,7 +94,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'last_nameが全角（漢字・ひらがな・カタカナ）でないと登録できない' do
-        @user.last_name = 'yamada' 
+        @user.last_name = 'yamada'
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name には全角文字を使用してください')
       end
@@ -106,7 +106,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'first_nameが全角（漢字・ひらがな・カタカナ）でないと登録できない' do
-        @user.first_name = 'yamada' 
+        @user.first_name = 'yamada'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name には全角文字を使用してください')
       end
@@ -118,7 +118,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'last_name_kanaが全角(カタカナ）でないと登録できない' do
-        @user.last_name_kana = 'あさだ' 
+        @user.last_name_kana = 'あさだ'
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name kana には全角カタカナを使用してください')
       end
@@ -130,7 +130,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'first_name_kanaが全角(カタカナ）でないと登録できない' do
-        @user.first_name_kana = 'あさだ' 
+        @user.first_name_kana = 'あさだ'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kana には全角カタカナを使用してください')
       end
