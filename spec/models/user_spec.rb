@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
 
-  # 2. テストのグループ分け
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
       it '全ての入力事項が正しく存在すれば登録できる' do
@@ -13,6 +12,18 @@ RSpec.describe User, type: :model do
       end
     end
 
-    
+    context '新規登録できないとき' do
+      it 'nicknameが空では登録できない' do
+        @user.nickname = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Nickname can't be blank")
+      end
+
+      it 'emailが空では登録できない' do
+        @user.email = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email can't be blank")
+      end
+    end
   end
 end
