@@ -52,7 +52,10 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless current_user.id == @item.user_id
+    # 条件1: 出品者ではない
+    # 条件2: すでに売却済みである
+    # いずれかに当てはまる場合はトップページへ
+    if current_user.id != @item.user_id || @item.order.present?
       redirect_to root_path
     end
   end
