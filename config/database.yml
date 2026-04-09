@@ -20,6 +20,7 @@ test:
   password:
   host: localhost
   database: furima_47736_test
+  prepared_statements: false
 
 # 本番環境（PostgreSQLを使用 / Render用）
 production:
