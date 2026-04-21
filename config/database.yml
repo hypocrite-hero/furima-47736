@@ -22,9 +22,10 @@ test:
   database: furima_47736_test
   prepared_statements: false
 
-# 本番環境（PostgreSQLを使用 / Render用）
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: mysql2
+  database: furima_47736_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
