@@ -96,5 +96,3 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end
 
-server '13.112.252.106', user: 'ec2-user', roles: %w{app db web}
-
