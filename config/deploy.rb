@@ -32,3 +32,8 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+set :bundle_env_variables, {
+  'BUNDLE_FORCE_RUBY_PLATFORM' => '1',
+  'BUNDLE_BUILD__NOKOGIRI' => '--use-system-libraries'
+}
