@@ -33,7 +33,7 @@ namespace :deploy do
   end
 end
 
-set :bundle_env_variables, {
-  'BUNDLE_FORCE_RUBY_PLATFORM' => '1',
-  'BUNDLE_BUILD__NOKOGIRI' => '--use-system-libraries'
-}
+#set :bundle_env_variables, {
+#  'BUNDLE_FORCE_RUBY_PLATFORM' => '1',
+#  'BUNDLE_BUILD__NOKOGIRI' => '--use-system-libraries'
+#}
